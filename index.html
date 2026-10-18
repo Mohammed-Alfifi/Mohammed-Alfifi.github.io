@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta property="og:title" content="محمد الفيفي | مطوّر Full-Stack">
-<meta property="og:description" content="أبني منصات SaaS وأنظمة تشغيل للشركات في السعودية.">
+<meta property="og:description" content="أبني منصات SaaS وتطبيقات جوال وأنظمة تشغيل للشركات في السعودية.">
 <title>محمد الفيفي | مطوّر Full-Stack</title>
 <meta name="description" content="محمد الفيفي، مطوّر Full-Stack ومؤسس منصة حولك. أبني منصات SaaS وأنظمة تشغيل للشركات في السعودية.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: single editorial column (max 1080px); hero → featured product with drawn UI → work grid → in-progress → services → contact. */
+/* Layout: single editorial column (max 1080px); hero → featured product with drawn UI → work grid (Mishwar wide, then two cards) → in-progress → services → contact. */
 :root{
   --paper:#f6f6f3; --surface:#ffffff; --ink:#15171b; --muted:#5b6068; --line:#e1e1dc;
   --accent:#1f4fd1; --accent-soft:#e6ecfb; --green:#1f7a4d; --green-soft:#e1f1e8; --sand:#efe7d6;
@@ -120,6 +120,17 @@ a:focus-visible,.btn:focus-visible{outline:2px solid var(--accent);outline-offse
 .v-face .scan{position:absolute;left:8px;right:8px;height:2px;background:var(--accent);top:40%;opacity:.7;animation:scan 2.8s ease-in-out infinite}
 @keyframes scan{0%,100%{top:18%}50%{top:78%}}
 
+/* wide card: Mishwar */
+.work.wide{grid-column:1/-1;display:grid;grid-template-columns:.9fr 1.1fr}
+.work.wide .visual{height:auto;min-height:260px;border-bottom:0;border-left:1px solid var(--line)}
+.v-route{background:#18263a;background-image:linear-gradient(#22344b 1px,transparent 1px),linear-gradient(90deg,#22344b 1px,transparent 1px);background-size:45px 45px;background-position:center}
+.v-route svg{position:absolute;inset:16px 16px 96px;width:calc(100% - 32px);height:calc(100% - 112px)}
+.v-route .eta{position:absolute;bottom:16px;right:16px;left:16px;background:#fff;color:#18263a;border-radius:14px;padding:12px 14px;display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center;font-size:12px}
+.v-route .eta b{font-family:var(--display);font-size:16px}
+.v-route .eta small{color:#4a5a6e}
+.v-route .plate{grid-row:1/3;grid-column:2;border:2px solid #18263a;border-radius:6px;padding:2px 8px;font-family:var(--mono);font-size:12px;direction:ltr;font-weight:600}
+@media (max-width:860px){.work.wide{grid-template-columns:1fr}.work.wide .visual{min-height:220px;border-left:0;border-bottom:1px solid var(--line)}}
+
 /* in progress */
 .progress{display:grid;gap:0;margin-top:30px;border-top:1px solid var(--line)}
 .prow{display:grid;grid-template-columns:180px 1fr auto;gap:24px;padding-block:24px;border-bottom:1px solid var(--line);align-items:baseline}
@@ -174,8 +185,8 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:14px;display:flex;ju
       <a class="btn" href="#work">شاهد الأعمال</a>
     </div>
     <div class="facts">
-      <span><b>منصة منشورة</b> في السوق السعودي</span>
-      <span><b>Python · JavaScript</b> للواجهة والخادم</span>
+      <span><b>منصتان منشورتان</b> للسوق السعودي</span>
+      <span><b>ويب وجوال</b> من الخادم إلى التطبيق</span>
       <span><b>دفع، خرائط، فوترة</b> مدمجة في المنتجات</span>
     </div>
   </header>
@@ -214,6 +225,35 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:14px;display:flex;ju
     </div>
 
     <div class="grid">
+      <article class="work wide">
+        <div class="visual v-route" aria-hidden="true">
+          <svg viewBox="40 30 310 180" preserveAspectRatio="xMidYMid meet">
+            <path d="M60 190 H150 V120 H330 V50" fill="none" stroke="#3fbf8f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="60" cy="190" r="8" fill="#18263a" stroke="#3fbf8f" stroke-width="4"/>
+            <circle cx="330" cy="50" r="10" fill="#f2b33d"/>
+            <circle cx="240" cy="120" r="12" fill="#0b6e4f" stroke="#fff" stroke-width="3"/>
+          </svg>
+          <div class="eta"><b>الوصول خلال 4 دقائق</b><span class="plate">7341 KHD</span><small>سارة في الطريق إلى المدرسة</small></div>
+        </div>
+        <div class="body">
+          <p class="kind">Mobility · Subscriptions · Live tracking</p>
+          <h3>مشوار: توصيل يومي باشتراك شهري</h3>
+          <p>منصة لتوصيل الطلاب والموظفين يوميا بسائق ثابت ومواعيد ثابتة. ولي الأمر يشترك لأبنائه ويتابع السيارة لحظة بلحظة ويرسل رابط متابعة لأهله، والسائق يدير رحلات يومه من تطبيقه، وشريك النقل يشغّل كل شيء من لوحة واحدة.</p>
+          <ul class="points">
+            <li>تطبيقان (راكب وسائق) ولوحة تشغيل وصفحة انضمام عامة، مع نسخة ويب للآيفون.</li>
+            <li>رحلات تُنشأ تلقائيا، وتتبع مباشر، وتنبيهات تأخير، وزر طوارئ يصل فريق التشغيل بالموقع.</li>
+            <li>اشتراكات وفواتير ضريبية بـ QR، وأكواد خصم، وتقييمات، ودعم فني، وتقارير.</li>
+            <li>تجربة مغلقة بالدعوة دون تكاليف تشغيل: دخول برموز تُرسل بالواتساب، ودفع بالتحويل.</li>
+          </ul>
+          <div class="stack"><span>NestJS · TypeScript</span><span>PostgreSQL · PostGIS</span><span>Redis · BullMQ</span><span>Next.js</span><span>Flutter</span><span>Docker</span><span>CI · 145 tests</span></div>
+          <div class="links">
+            <a href="https://mishwar-ride-admin.onrender.com/join" target="_blank" rel="noopener">صفحة المنصة ↗</a>
+            <a href="https://mishwar-ride-app.onrender.com" target="_blank" rel="noopener">تطبيق الراكب على الويب ↗</a>
+            <a href="https://github.com/Mohammed-Alfifi/ride-platform" target="_blank" rel="noopener">الكود على GitHub ↗</a>
+          </div>
+        </div>
+      </article>
+
       <article class="work">
         <div class="visual v-drone" aria-hidden="true">
           <div class="grid-l"></div>
@@ -261,7 +301,6 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:14px;display:flex;ju
     <h2>قيد التطوير</h2>
     <p class="lead">منتجات أعمل عليها الآن، موجّهة للسوق السعودي.</p>
     <div class="progress">
-      <div class="prow"><h3>تطبيق توصيل الركاب</h3><p>تطبيق نقل ركاب للسعودية: طلب رحلة، مطابقة السائق، التتبع على الخريطة، والدفع داخل التطبيق.</p><span class="state">تنفيذ على مراحل</span></div>
       <div class="prow"><h3>إدارة المباني واتحادات الملاك</h3><p>منصة لشركات إدارة المباني: جدولة الصيانة الدورية بإثبات مصوّر، بلاغات السكان، ومالية شفافة لكل مالك.</p><span class="state">تصميم المنتج</span></div>
     </div>
   </div>
@@ -290,7 +329,7 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:14px;display:flex;ju
     </div>
     <div class="tools">
       <p class="eyebrow">Tools</p>
-      <div class="stack"><span>Python</span><span>FastAPI</span><span>Flask</span><span>JavaScript</span><span>HTML / CSS</span><span>SQL</span><span>WebSocket</span><span>OpenCV</span><span>Godot</span><span>Docker</span><span>Git</span><span>Payment gateways</span><span>Maps APIs</span></div>
+      <div class="stack"><span>Python</span><span>FastAPI</span><span>Flask</span><span>TypeScript</span><span>NestJS</span><span>Next.js</span><span>Flutter</span><span>PostgreSQL</span><span>JavaScript</span><span>HTML / CSS</span><span>SQL</span><span>WebSocket</span><span>OpenCV</span><span>Godot</span><span>Docker</span><span>Git</span><span>Payment gateways</span><span>Maps APIs</span></div>
     </div>
   </div>
 </section>
