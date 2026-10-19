@@ -97,6 +97,39 @@ footer{padding:26px 0 40px;color:var(--muted);font-size:14px;display:flex;justif
   .navlinks{display:none}
 }
 @media (max-width:480px){.skills{grid-template-columns:1fr}}
+
+/* print / PDF export: same design, light theme, A4 */
+@media print{
+  @page{size:A4;margin:12mm 11mm}
+  :root,:root[data-theme="dark"]{--paper:#ffffff;--surface:#ffffff;--ink:#0f1a33;--muted:#5a6478;--line:#e2e6ee;--navy:#1b2f6b;--accent:#2346a8;--accent-soft:#e8edfa;--green:#1d7a4c;--green-soft:#e2f2e9;color-scheme:light}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-size:10.5pt;line-height:1.5}
+  .wrap{max-width:none;padding:0}
+  nav,.cta,.no-print{display:none!important}
+  .hero{padding:4px 0 10px}
+  .hero h1{font-size:28pt}
+  .contact-row{margin-top:12px;font-size:9.5pt}
+  section{padding:12px 0}
+  .sec-title{margin-bottom:12px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .card{padding:13px 14px;gap:6px;break-inside:avoid}
+  .card h3{font-size:12.5pt}
+  .card p,.card ul{font-size:9.5pt}
+  .sub{margin:14px 0 8px}
+  .item{grid-template-columns:150px 1fr;gap:16px;break-inside:avoid}
+  .skills{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .two{grid-template-columns:1fr 1fr}
+  .contact{padding:18px;border-radius:12px;break-inside:avoid;color:#fff!important;background:#1b2f6b}
+  .contact .cta{display:flex!important}
+  .item .when{border-right:0;border-left:2px solid var(--navy);padding:0 0 0 16px}
+  .sub,.sec-title,.sec-title h2{break-after:avoid;page-break-after:avoid}
+  #experience{break-before:page}
+  #contact{padding-top:8px}
+  .contact{padding:14px;gap:8px}
+  .item ul{font-size:9.8pt}
+  footer{display:none}
+  a{text-decoration:none}
+}
 </style>
 </head>
 <body>
@@ -121,6 +154,7 @@ footer{padding:26px 0 40px;color:var(--muted);font-size:14px;display:flex;justif
     </div>
     <div class="cta">
       <a class="btn primary" href="CV-Mohammed_Alfaifi.pdf" target="_blank" rel="noopener">تحميل السيرة الذاتية (PDF)</a>
+      <a class="btn" href="Portfolio-Mohammed_Alfaifi-AR.pdf" target="_blank" rel="noopener" download>تحميل ملف الأعمال (PDF)</a>
       <a class="btn" href="#projects">استعراض المشاريع</a>
     </div>
   </header>
